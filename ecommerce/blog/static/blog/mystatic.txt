@@ -1,0 +1,3 @@
+Hey All!!!
+
+This is my new static file for the blog

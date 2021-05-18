@@ -48,8 +48,11 @@ def tracker(request):
 def search(request):
     return HttpResponse("We are at search")
 
-def productView(request):
-    return HttpResponse("We are at product view")
+def productView(request , myid):
+    product = Product.objects.filter(product_id=myid)
+    product = product[0]
+    params = {'product': product}
+    return render(request , 'shop/prodView.html' , params)
 
 def checkout(request):
     return HttpResponse("We are at checkout")

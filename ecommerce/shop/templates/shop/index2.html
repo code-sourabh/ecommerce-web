@@ -72,6 +72,7 @@
               <h5 class="card-title">{{i.product_name}}</h5>
               <p class="card-text">{{i.desc}}</p>
               <button id="pr{{i.product_id}}" class="btn btn-primary cart">Add To Cart</button>
+              <a href="/shop/products/{{i.product_id}}"><button id="qv{{i.product_id}}" class="btn btn-primary cart">Quick View</button></a>
             </div>
           </div>
         </div>
@@ -98,7 +99,7 @@
  {% endblock %}
 
 
- {% block js %}  
+{% block js %}  
 
 <script>
 console.log('working');

@@ -2,7 +2,7 @@ import os
 import django
 from django.shortcuts import render
 from django.http import HttpResponse
-from shop.models import Product
+from shop.models import Product , Contact
 from math import ceil
 
 # Allowing sync_to_asyn so as to retrieve the data from the database
@@ -40,6 +40,13 @@ def about(request):
     return render(request, 'shop/about.html')
 
 def contact(request):
+    if request.method == 'POST':
+        name = request.POST.get('name' , "")
+        email = request.POST.get('email',"")
+        phone = request.POST.get('phone',"")
+        desc = request.POST.get('desc',"")
+        contact = Contact(name= name , email= email , phone= phone , desc= desc)
+        contact.save()
     return render(request, 'shop/contact.html')
 
 def tracker(request):
